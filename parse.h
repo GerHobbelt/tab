@@ -223,7 +223,8 @@ Type parse(I beg, I end, const Type& toplevel_type, TypeRuntime& typer, std::vec
             } else if (z == "r") {
                 str_buff += '\r';
             } else if (z == "e") {
-                str_buff += '\e';
+				// An addition of the string/character escape sequence \e as a shortcut/short-hand replacement for the character code point 0x1b, commonly known as the ESCAPE (or ESC) character.
+                str_buff += '\x1b';
             } else {
                 str_buff += z;
             }
