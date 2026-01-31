@@ -100,7 +100,7 @@ bool getopt(unsigned char opt, int argc, char** argv, int& i, std::string& out, 
 
                 if (!required) return true;
 
-                std::runtime_error("The '-" + std::string(opt, 1) +"' command line argument expects an argument.");
+                throw std::runtime_error("The '-" + std::string(opt, 1) +"' command line argument expects an argument.");
             }
 
             ++i;

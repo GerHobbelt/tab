@@ -9,6 +9,8 @@ struct Printer {
 
     bool null;
     Printer() : null(true) {}
+	// fix warning C5204: 'tab::obj::Printer': class has virtual functions, but its trivial destructor is not virtual; instances of objects derived from this class may not be destructed correctly
+	virtual ~Printer() = default;
 
     void bump() { null = false; }
 
