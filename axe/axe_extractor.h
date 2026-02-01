@@ -127,8 +127,9 @@ namespace axe {
     public:
         e_ref_t(T&& t) : t_(std::forward<T>(t)) {}
         
-        template<class I>
-        void operator()(I i1, I i2) const
+        template<class I,
+			typename = std::enable_if_t<std::is_convertible<std::forward<I>, I>::value>>
+		void operator()(I i1, I i2) const
         {
             t_(i1, i2);
         }

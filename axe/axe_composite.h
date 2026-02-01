@@ -369,7 +369,8 @@ public:
         return *this;
     }
 
-    template<class Iterator>
+    template<class Iterator,
+		typename = std::enable_if_t<std::is_convertible<I, Iterator>::value>>
     result<Iterator> operator()(Iterator i1, Iterator i2) const
     {
         static_assert(std::is_convertible<I, Iterator>::value, "Iterator must be convertible to I");
